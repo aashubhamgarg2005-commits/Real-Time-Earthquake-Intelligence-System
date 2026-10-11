@@ -1,13 +1,13 @@
-websocket-client==2.32.5
+websocket-client==1.9.2
 python-dotenv==1.1.1
 
-kafka-python==2.2.15
+kafka-python==3.0.11
 
 pyspark==4.0.1
 
-minio==7.2.16
-boto3==1.40.43
+minio==7.2.20
+boto3==1.43.111
 
-psycopg2-binary==2.9.10
-SQLAlchemy==2.0.43
+psycopg2-binary==2.9.13
+SQLAlchemy==2.1.4
 
