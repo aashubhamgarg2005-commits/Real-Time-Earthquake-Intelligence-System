@@ -1,29 +1,54 @@
-from .config.config import (
-    kafka_bootstrap_server,
-    kafka_topic,
-    minio_access_key,
-    minio_bucket,
-    minio_endpoint,
-    minio_secret_key,
-    minio_secure,
-    emsc_websocket_url,
-    
-)
-from .ingestion.api_client import EarthquakeWebSocketClient
-from .kafka.kafka_client import KafkaClientService
+from .processing.spark_session import spark
+from .config.config import minio_bucket
+from .processing.kafka_spark_stream import consume_stream_data
+from .storage.minio_client import MinioClient
+from .processing.data_cleaning import EarthQuakeDataCleaning
+from.processing.earthquake_schema import earthquake_schema
 
 def main():
-    # create kafka client object
-    kafka = KafkaClientService(bootstrap_server=kafka_bootstrap_server)
-    # create topic if not exists 
-    kafka.create_topic(topic=kafka_topic)
-    # fetch earthquake strem data
-    client = EarthquakeWebSocketClient(emsc_websocket_url=emsc_websocket_url)
-    for earthquake in client.stream():
-        earthquake_data = earthquake
-        # send message to kafka
-        kafka.send_message(topic_name=kafka_topic,
-                       data=earthquake_data)
+    # read EarthQuake Raw data from Kafka
+    EarthQuake_json = consume_stream_data()
+    # create bucket if not exists
+    minio_client = MinioClient()
+    if not minio_client.bucket_exists():
+        minio_client.create_bucket()
+    # write raw data to minio
+    query = (EarthQuake_json.writeStream\
+            .format("json")\
+            .outputMode("append")\
+            .option(
+                "path",
+                f"s3a://{minio_bucket}/bronze/"
+            )\
+            .option(
+                "checkpointLocation",
+                f"s3a://{minio_bucket}/checkpoints/raw/"
+            )\
+            .partitionBy("events_date")
+            .start()
+    )
+
+    # do some cleaning on earthquake data
+    earthquake_cleaner = EarthQuakeDataCleaning(schema=earthquake_schema)
+    clean_data = earthquake_cleaner.clean_data(df=EarthQuake_json)
+
+    # write clean data into minio storage 
+    query2 = (clean_data.writeStream\
+                .format("parquet")\
+                .outputMode("append")\
+                .option(
+                    "path",
+                    f"s3a://{minio_bucket}/process"
+                )\
+                .option(
+                    "checkpointLocation",
+                    f"s3a://{minio_bucket}/checkpoints/process"
+                )\
+                .start()
+    )
+    spark.streams.awaitAnyTermination()
+
+
 
 if __name__ == "__main__":
     main()

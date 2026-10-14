@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alerts | Earthquake Intel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/alerts.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-house-crack"></i>
+            </div>
+
+            <div>
+                <h2>Earthquake</h2>
+                <span>Intel</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="live-events.html" class="nav-item">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Live Events</span>
+            </a>
+
+            <a href="search.html" class="nav-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+
+            <a href="ai-analysis.html" class="nav-item">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI Analysis</span>
+            </a>
+
+            <a href="alerts.html" class="nav-item active">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alerts</span>
+            </a>
+
+            <a href="about.html" class="nav-item">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>Alert System Online</strong>
+                    <small>Monitoring active</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="topbar-title">
+                <span>Earthquake Intelligence System</span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>Alert Monitoring</span>
+                </div>
+
+                <div class="current-time" id="currentTime">
+                    --:--:--
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= ALERT PAGE ================= -->
+        <section class="alerts-page">
+
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <span class="page-kicker">
+                        <i class="fa-solid fa-bell"></i>
+                        Earthquake Monitoring
+                    </span>
+
+                    <h1>Earthquake Alerts</h1>
+
+                    <p>
+                        Monitor important seismic events and AI-generated
+                        risk notifications.
+                    </p>
+
+                </div>
+
+
+                <div class="alert-status">
+
+                    <span class="alert-status-dot"></span>
+
+                    <div>
+                        <strong>Alert Monitoring Active</strong>
+                        <small>Real-time event detection</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ALERT SUMMARY ================= -->
+            <div class="alert-summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon blue">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <div>
+                        <span>ACTIVE ALERTS</span>
+                        <strong id="activeAlertCount">3</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+                        <span>HIGH RISK</span>
+                        <strong id="highRiskCount">1</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <span>RECENT EVENTS</span>
+                        <strong id="recentEventCount">8</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>SYSTEM STATUS</span>
+                        <strong>Online</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ALERT CONTROLS ================= -->
+            <div class="alert-controls">
+
+                <div class="control-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            ALERT CENTER
+                        </span>
+
+                        <h2>Notifications</h2>
+
+                    </div>
+
+                    <button
+                        id="markAllRead"
+                        class="mark-read-btn"
+                    >
+                        <i class="fa-solid fa-check-double"></i>
+                        Mark All as Read
+                    </button>
+
+                </div>
+
+
+                <div class="alert-filters">
+
+                    <button
+                        class="alert-filter active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="alert-filter"
+                        data-filter="high"
+                    >
+                        High Risk
+                    </button>
+
+                    <button
+                        class="alert-filter"
+                        data-filter="moderate"
+                    >
+                        Moderate
+                    </button>
+
+                    <button
+                        class="alert-filter"
+                        data-filter="info"
+                    >
+                        Information
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ALERT LIST ================= -->
+            <div
+                id="alertList"
+                class="alert-list"
+            >
+                <!-- Alerts inserted by JavaScript -->
+            </div>
+
+
+            <!-- ================= EMPTY STATE ================= -->
+            <div
+                id="emptyAlerts"
+                class="empty-alerts hidden"
+            >
+
+                <div class="empty-icon">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+
+                <h3>No Alerts Found</h3>
+
+                <p>
+                    There are no notifications matching the selected
+                    alert category.
+                </p>
+
+            </div>
+
+
+            <!-- ================= ALERT RULES ================= -->
+            <div class="alert-rules">
+
+                <div class="rules-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            DETECTION RULES
+                        </span>
+
+                        <h2>Alert Conditions</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-sliders"></i>
+
+                </div>
+
+
+                <div class="rules-grid">
+
+                    <div class="rule-item">
+
+                        <div class="rule-icon red">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </div>
+
+                        <div>
+                            <strong>High Magnitude</strong>
+                            <p>
+                                Alert when earthquake magnitude
+                                reaches 6.0 or higher.
+                            </p>
+                        </div>
+
+                        <span class="rule-badge enabled">
+                            Enabled
+                        </span>
+
+                    </div>
+
+
+                    <div class="rule-item">
+
+                        <div class="rule-icon orange">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+                            <strong>AI Risk</strong>
+                            <p>
+                                Alert when predicted seismic risk
+                                exceeds the configured threshold.
+                            </p>
+                        </div>
+
+                        <span class="rule-badge enabled">
+                            Enabled
+                        </span>
+
+                    </div>
+
+
+                    <div class="rule-item">
+
+                        <div class="rule-icon blue">
+                            <i class="fa-solid fa-wave-square"></i>
+                        </div>
+
+                        <div>
+                            <strong>Aftershock Activity</strong>
+                            <p>
+                                Detect unusual aftershock activity
+                                following major events.
+                            </p>
+                        </div>
+
+                        <span class="rule-badge enabled">
+                            Enabled
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DISCLAIMER ================= -->
+            <div class="alert-disclaimer">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    Alerts generated by this system are based on available
+                    seismic data and AI analysis. They are informational
+                    and should not replace official emergency warnings.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+
+            <div>
+                © 2026 Earthquake Intel
+            </div>
+
+            <div class="footer-links">
+
+                <a href="live-events.html">Live Events</a>
+                <a href="search.html">Search</a>
+                <a href="ai-analysis.html">AI Analysis</a>
+                <a href="about.html">About</a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Common JS -->
+<script src="js/main.js"></script>
+
+<!-- Page JS -->
+<script src="js/alerts.js"></script>
+
+</body>
+</html>

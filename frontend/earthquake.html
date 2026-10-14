@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Earthquake Details | Earthquake Intel</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/earthquake.css">
+
+</head>
+
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <i class="fa-solid fa-wave-square"></i>
+        </div>
+
+        <div>
+            <h2>Earthquake <span>Intel</span></h2>
+            <p>Real-Time • Analyze • Stay Safe</p>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="live-events.html" class="nav-item">
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Live Events</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+        </a>
+
+        <a href="ai-analysis.html" class="nav-item">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+        <a href="alerts.html" class="nav-item">
+            <i class="fa-solid fa-bell"></i>
+            <span>Alerts</span>
+        </a>
+
+        <a href="about.html" class="nav-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-message">
+
+        <i class="fa-solid fa-earth-americas"></i>
+
+        <p>
+            Earthquakes don't kill,
+            it's the unpreparedness
+            that does.
+        </p>
+
+        <div class="mountain-line">
+            ∿∿∿∿
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div></div>
+
+        <div class="top-status">
+
+            <div class="live-status">
+                <span></span>
+                Live Data
+            </div>
+
+            <div class="date-time">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <span id="currentDate">
+                    12 Oct 2026
+                </span>
+
+                <b>|</b>
+
+                <span id="currentTime">
+                    12:42:18
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= PAGE ================= -->
+
+    <section class="earthquake-page">
+
+
+        <!-- BREADCRUMB -->
+
+        <div class="breadcrumb">
+
+            <a href="live-events.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Live Events
+            </a>
+
+            <span>/</span>
+
+            <span>Earthquake Details</span>
+
+        </div>
+
+
+        <!-- ================= HERO ================= -->
+
+        <div class="earthquake-hero">
+
+
+            <div class="hero-left">
+
+                <div class="hero-icon">
+
+                    <i class="fa-solid fa-house-crack"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span class="event-label">
+                        EARTHQUAKE EVENT
+                    </span>
+
+                    <h1 id="earthquakeRegion">
+                        Panama
+                    </h1>
+
+                    <p id="eventId">
+                        Event ID: EMSC-20261012-001
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="risk-badge">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div>
+
+                    <strong id="riskLevel">
+                        Moderate Risk
+                    </strong>
+
+                    <span>
+                        AI Risk Assessment
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MAIN STATS ================= -->
+
+        <div class="main-stats">
+
+
+            <div class="magnitude-card">
+
+                <span class="stat-label">
+                    MAGNITUDE
+                </span>
+
+                <div class="magnitude-value">
+
+                    <strong id="magnitude">
+                        6.8
+                    </strong>
+
+                    <span>
+                        Mw
+                    </span>
+
+                </div>
+
+                <div class="magnitude-bar">
+
+                    <div
+                        class="magnitude-progress"
+                        id="magnitudeProgress"
+                    ></div>
+
+                </div>
+
+                <p>
+                    Strong earthquake
+                </p>
+
+            </div>
+
+
+            <div class="detail-stat">
+
+                <div class="detail-icon depth-icon">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        DEPTH
+                    </span>
+
+                    <strong id="depth">
+                        10 km
+                    </strong>
+
+                    <small>
+                        Shallow
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-stat">
+
+                <div class="detail-icon location-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        LOCATION
+                    </span>
+
+                    <strong id="coordinates">
+                        7.904°N
+                    </strong>
+
+                    <small>
+                        77.230°W
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-stat">
+
+                <div class="detail-icon time-icon">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        OCCURRED
+                    </span>
+
+                    <strong id="eventTime">
+                        12:38:42
+                    </strong>
+
+                    <small>
+                        12 Oct 2026
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTENT GRID ================= -->
+
+        <div class="details-grid">
+
+
+            <!-- ================= LEFT ================= -->
+
+            <div class="details-left">
+
+
+                <!-- LOCATION CARD -->
+
+                <div class="detail-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <i class="fa-solid fa-location-crosshairs"></i>
+
+                            <h2>Event Location</h2>
+
+                        </div>
+
+                        <span>
+                            Coordinates
+                        </span>
+
+                    </div>
+
+
+                    <div class="location-box">
+
+                        <div class="location-map">
+
+                            <div class="map-lines"></div>
+
+                            <div class="map-crosshair">
+
+                                <span></span>
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                            </div>
+
+                            <div class="map-label">
+                                Epicenter
+                            </div>
+
+                        </div>
+
+
+                        <div class="coordinates-info">
+
+                            <div class="coordinate">
+
+                                <span>
+                                    Latitude
+                                </span>
+
+                                <strong>
+                                    7.904° N
+                                </strong>
+
+                            </div>
+
+
+                            <div class="coordinate">
+
+                                <span>
+                                    Longitude
+                                </span>
+
+                                <strong>
+                                    77.230° W
+                                </strong>
+
+                            </div>
+
+
+                            <div class="coordinate">
+
+                                <span>
+                                    Depth
+                                </span>
+
+                                <strong>
+                                    10 km
+                                </strong>
+
+                            </div>
+
+
+                            <div class="coordinate">
+
+                                <span>
+                                    Region
+                                </span>
+
+                                <strong>
+                                    Panama
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEISMIC ACTIVITY -->
+
+                <div class="detail-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <h2>Seismic Activity</h2>
+
+                        </div>
+
+                        <span>
+                            Live Signal
+                        </span>
+
+                    </div>
+
+
+                    <div class="waveform">
+
+                        <div class="wave-label">
+                            SEISMIC WAVEFORM
+                        </div>
+
+                        <div class="wave-line">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <div class="wave-time">
+
+                            <span>0s</span>
+                            <span>10s</span>
+                            <span>20s</span>
+                            <span>30s</span>
+                            <span>40s</span>
+                            <span>50s</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EVENT INFORMATION -->
+
+                <div class="detail-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <h2>Event Information</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-table">
+
+                        <div class="info-row">
+
+                            <span>
+                                Event ID
+                            </span>
+
+                            <strong>
+                                EMSC-20261012-001
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Magnitude Type
+                            </span>
+
+                            <strong>
+                                Mw
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                EMSC
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Detection Status
+                            </span>
+
+                            <strong class="verified">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Verified
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Last Updated
+                            </span>
+
+                            <strong>
+                                Just now
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT ================= -->
+
+            <div class="details-right">
+
+
+                <!-- AI RISK CARD -->
+
+                <div class="ai-risk-card">
+
+                    <div class="ai-heading">
+
+                        <div class="ai-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                AI ANALYSIS
+                            </span>
+
+                            <h2>
+                                Risk Assessment
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-score">
+
+                        <div
+                            class="score-circle"
+                            id="scoreCircle"
+                        >
+
+                            <strong>
+                                68
+                            </strong>
+
+                            <span>
+                                /100
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Moderate Risk
+                            </strong>
+
+                            <p>
+                                Based on magnitude,
+                                depth and location.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-factors">
+
+                        <div>
+
+                            <span>
+                                Magnitude
+                            </span>
+
+                            <strong>
+                                High
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Depth
+                            </span>
+
+                            <strong>
+                                Shallow
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Population Exposure
+                            </span>
+
+                            <strong>
+                                Medium
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- POSSIBLE IMPACT -->
+
+                <div class="detail-card impact-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                            <h2>
+                                Possible Impact
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="impact-item">
+
+                        <div class="impact-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Structural Impact
+                            </strong>
+
+                            <p>
+                                Moderate damage possible
+                                near epicenter.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="impact-item">
+
+                        <div class="impact-icon">
+                            <i class="fa-solid fa-person"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Human Exposure
+                            </strong>
+
+                            <p>
+                                Local population may
+                                experience strong shaking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="impact-item">
+
+                        <div class="impact-icon">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Tsunami Risk
+                            </strong>
+
+                            <p>
+                                Low based on current
+                                depth and location.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAFETY -->
+
+                <div class="safety-card">
+
+                    <div class="safety-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Safety Recommendation
+                        </h3>
+
+                        <p>
+                            Stay away from damaged
+                            structures and follow
+                            official local instructions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BACK BUTTON -->
+
+                <a
+                    href="live-events.html"
+                    class="back-events"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Live Events
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            Real-Time Earthquake Intelligence System
+        </p>
+
+        <div>
+
+            <a href="index.html">Home</a>
+            <a href="live-events.html">Live Events</a>
+            <a href="search.html">Search</a>
+            <a href="ai-analysis.html">AI Analysis</a>
+            <a href="alerts.html">Alerts</a>
+            <a href="about.html">About</a>
+
+        </div>
+
+    </footer>
+
+
+</main>
+
+
+<!-- Common JS -->
+<script src="js/main.js"></script>
+
+<!-- Page JS -->
+<script src="js/earthquake.js"></script>
+
+</body>
+
+</html>

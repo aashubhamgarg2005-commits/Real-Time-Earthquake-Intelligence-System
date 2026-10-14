@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Earthquake Intel | Real-Time Intelligence</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <i class="fa-solid fa-wave-square"></i>
+        </div>
+
+        <div>
+            <h2>Earthquake <span>Intel</span></h2>
+            <p>Real-Time • Analyze • Stay Safe</p>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="index.html" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="live-events.html" class="nav-item">
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Live Events</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+        </a>
+
+        <a href="ai-analysis.html" class="nav-item">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+        <a href="alerts.html" class="nav-item">
+            <i class="fa-solid fa-bell"></i>
+            <span>Alerts</span>
+        </a>
+
+        <a href="about.html" class="nav-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-message">
+
+        <i class="fa-solid fa-earth-americas"></i>
+
+        <p>
+            Earthquakes don't kill,
+            it's the unpreparedness
+            that does.
+        </p>
+
+        <div class="mountain-line">
+            ∿∿∿∿
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main-content">
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div></div>
+
+        <div class="top-status">
+
+            <div class="live-status">
+                <span></span>
+                Live Data
+            </div>
+
+            <div class="date-time">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="currentDate">12 Oct 2026</span>
+                <b>|</b>
+                <span id="currentTime">12:42:18</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                REAL-TIME
+            </div>
+
+            <h1>
+                Earthquake
+                <span>Intelligence System</span>
+            </h1>
+
+            <p>
+                Live earthquake data, advanced analytics and
+                AI-powered insights to help communities stay
+                informed and safe.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="live-events.html" class="btn-primary">
+                    <i class="fa-solid fa-play"></i>
+                    View Live Events
+                </a>
+
+                <a href="ai-analysis.html" class="btn-outline">
+                    Explore AI Analysis
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="hero-earth"></div>
+
+            <div class="hero-wave">
+                ────────╱╲╱╲───────
+            </div>
+
+            <div class="hero-text">
+                <strong>Real Data.</strong>
+                <strong>Smarter Decisions.</strong>
+                <strong>Safer Tomorrow.</strong>
+
+                <div></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STAT CARDS ================= -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon red">
+                <i class="fa-solid fa-wave-square"></i>
+            </div>
+
+            <div>
+                <p>Total Events (24h)</p>
+
+                <h2 id="totalEvents">
+                    1,284
+                </h2>
+
+                <small class="positive">
+                    ↑ 12%
+                </small>
+
+                <small>
+                    vs. previous day
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-crosshairs"></i>
+            </div>
+
+            <div>
+                <p>Strongest Magnitude</p>
+
+                <h2 id="strongestMagnitude">
+                    6.8
+                </h2>
+
+                <small>
+                    Last 24 hours
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div>
+                <p>Active Regions</p>
+
+                <h2 id="activeRegions">
+                    48
+                </h2>
+
+                <small>
+                    Around the world
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+
+            <div>
+                <p>Last Updated</p>
+
+                <h2 id="lastUpdated">
+                    12:42:18
+                </h2>
+
+                <small>
+                    12 Oct 2026
+                </small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN GRID ================= -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- MAP -->
+
+        <div class="map-card">
+
+            <div class="card-header">
+
+                <div>
+                    <i class="fa-regular fa-map"></i>
+                    <strong>Live Earthquake Map</strong>
+                </div>
+
+                <div class="map-status">
+                    <span></span>
+                    Real-time feed
+                </div>
+
+            </div>
+
+
+            <div class="map-container">
+
+                <div class="world-map">
+
+                    <div class="map-grid"></div>
+
+                    <div class="continent north-america">
+                        NORTH<br>AMERICA
+                    </div>
+
+                    <div class="continent south-america">
+                        SOUTH<br>AMERICA
+                    </div>
+
+                    <div class="continent europe">
+                        EUROPE
+                    </div>
+
+                    <div class="continent africa">
+                        AFRICA
+                    </div>
+
+                    <div class="continent asia">
+                        ASIA
+                    </div>
+
+                    <div class="continent australia">
+                        AUSTRALIA
+                    </div>
+
+
+                    <span class="quake-marker major m1"></span>
+                    <span class="quake-marker major m2"></span>
+                    <span class="quake-marker moderate m3"></span>
+                    <span class="quake-marker moderate m4"></span>
+                    <span class="quake-marker minor m5"></span>
+                    <span class="quake-marker minor m6"></span>
+                    <span class="quake-marker major m7"></span>
+                    <span class="quake-marker moderate m8"></span>
+
+                </div>
+
+
+                <div class="map-controls">
+
+                    <button>+</button>
+                    <button>−</button>
+
+                </div>
+
+
+                <div class="map-legend">
+
+                    <span>
+                        <i class="legend yellow"></i>
+                        M &lt; 4.0
+                    </span>
+
+                    <span>
+                        <i class="legend orange"></i>
+                        M 4.0 – 5.0
+                    </span>
+
+                    <span>
+                        <i class="legend red"></i>
+                        M 5.0 – 6.0
+                    </span>
+
+                    <span>
+                        <i class="legend dark-red"></i>
+                        M &gt; 6.0
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LATEST EARTHQUAKES -->
+
+        <div class="latest-card">
+
+            <div class="card-header">
+
+                <div>
+                    <i class="fa-solid fa-tower-broadcast"></i>
+                    <strong>Latest Earthquakes</strong>
+                </div>
+
+                <a href="live-events.html">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div class="earthquake-list">
+
+
+                <div class="earthquake-item">
+
+                    <div class="magnitude major-mag">
+                        6.8
+                    </div>
+
+                    <div class="quake-info">
+
+                        <h4>Panama</h4>
+
+                        <p>
+                            7.904°N, 77.230°W
+                        </p>
+
+                        <small>
+                            Depth: 10 km
+                        </small>
+
+                    </div>
+
+                    <div class="quake-time">
+
+                        <span>2h ago</span>
+
+                        <b class="major-badge">
+                            Major
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <div class="earthquake-item">
+
+                    <div class="magnitude moderate-mag">
+                        5.4
+                    </div>
+
+                    <div class="quake-info">
+
+                        <h4>Tonga</h4>
+
+                        <p>
+                            20.562°S, 173.114°W
+                        </p>
+
+                        <small>
+                            Depth: 35 km
+                        </small>
+
+                    </div>
+
+                    <div class="quake-time">
+
+                        <span>3h ago</span>
+
+                        <b class="moderate-badge">
+                            Moderate
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <div class="earthquake-item">
+
+                    <div class="magnitude minor-mag">
+                        4.7
+                    </div>
+
+                    <div class="quake-info">
+
+                        <h4>Japan</h4>
+
+                        <p>
+                            37.642°N, 141.583°E
+                        </p>
+
+                        <small>
+                            Depth: 50 km
+                        </small>
+
+                    </div>
+
+                    <div class="quake-time">
+
+                        <span>4h ago</span>
+
+                        <b class="minor-badge">
+                            Light
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <div class="earthquake-item">
+
+                    <div class="magnitude minor-mag">
+                        4.3
+                    </div>
+
+                    <div class="quake-info">
+
+                        <h4>Indonesia</h4>
+
+                        <p>
+                            0.832°S, 122.986°E
+                        </p>
+
+                        <small>
+                            Depth: 112 km
+                        </small>
+
+                    </div>
+
+                    <div class="quake-time">
+
+                        <span>5h ago</span>
+
+                        <b class="minor-badge">
+                            Light
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <div class="earthquake-item">
+
+                    <div class="magnitude moderate-mag">
+                        5.1
+                    </div>
+
+                    <div class="quake-info">
+
+                        <h4>Chile</h4>
+
+                        <p>
+                            29.663°S, 71.377°W
+                        </p>
+
+                        <small>
+                            Depth: 25 km
+                        </small>
+
+                    </div>
+
+                    <div class="quake-time">
+
+                        <span>6h ago</span>
+
+                        <b class="moderate-badge">
+                            Moderate
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- AI CARD -->
+
+        <div class="ai-card">
+
+            <div class="ai-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <h2>AI Analysis</h2>
+
+            <p>
+                Get AI-powered insights, risk assessment
+                and future predictions for better
+                preparedness.
+            </p>
+
+            <a href="ai-analysis.html" class="ai-button">
+                View Analysis
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- QUICK ACCESS -->
+
+        <div class="quick-card">
+
+            <div class="card-title">
+                <i class="fa-solid fa-bolt"></i>
+                Quick Access
+            </div>
+
+
+            <div class="quick-grid">
+
+                <a href="live-events.html">
+                    <i class="fa-solid fa-wave-square"></i>
+
+                    <div>
+                        <strong>Live Events</strong>
+                        <small>Real-time earthquakes</small>
+                    </div>
+                </a>
+
+
+                <a href="search.html">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <div>
+                        <strong>Search</strong>
+                        <small>Find any earthquake</small>
+                    </div>
+                </a>
+
+
+                <a href="alerts.html">
+                    <i class="fa-solid fa-bell"></i>
+
+                    <div>
+                        <strong>Alerts</strong>
+                        <small>Set custom alerts</small>
+                    </div>
+                </a>
+
+
+                <a href="about.html">
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <div>
+                        <strong>About</strong>
+                        <small>Learn more about us</small>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PREPAREDNESS -->
+
+        <div class="preparedness-card">
+
+            <div>
+
+                <h3>
+                    Preparedness today
+                    <br>
+                    builds a safer tomorrow.
+                </h3>
+
+                <div class="small-line"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Real-Time Earthquake Intelligence System
+        </p>
+
+        <div>
+
+            <a href="index.html">Home</a>
+            <a href="live-events.html">Live Events</a>
+            <a href="search.html">Search</a>
+            <a href="earthquake.html">EarthQuake</a>
+            <a href="ai-analysis.html">AI Analysis</a>
+            <a href="alerts.html">Alerts</a>
+            <a href="about.html">About</a>
+
+        </div>
+
+    </footer>
+
+</main>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Events | Earthquake Intel</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/live_events.css">
+
+</head>
+
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <i class="fa-solid fa-wave-square"></i>
+        </div>
+
+        <div>
+            <h2>Earthquake <span>Intel</span></h2>
+            <p>Real-Time • Analyze • Stay Safe</p>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="live-events.html" class="nav-item active">
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Live Events</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+        </a>
+
+        <a href="ai-analysis.html" class="nav-item">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+        <a href="alerts.html" class="nav-item">
+            <i class="fa-solid fa-bell"></i>
+            <span>Alerts</span>
+        </a>
+
+        <a href="about.html" class="nav-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-message">
+
+        <i class="fa-solid fa-earth-americas"></i>
+
+        <p>
+            Earthquakes don't kill,
+            it's the unpreparedness
+            that does.
+        </p>
+
+        <div class="mountain-line">
+            ∿∿∿∿
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div></div>
+
+        <div class="top-status">
+
+            <div class="live-status">
+                <span></span>
+                Live Data
+            </div>
+
+            <div class="date-time">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <span id="currentDate">
+                    12 Oct 2026
+                </span>
+
+                <b>|</b>
+
+                <span id="currentTime">
+                    12:42:18
+                </span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= PAGE ================= -->
+
+    <section class="live-page">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="page-heading">
+
+            <div>
+
+                <h1>
+                    Live Earthquake Events
+                </h1>
+
+                <p>
+                    Monitor earthquakes happening around
+                    the world in real-time.
+                </p>
+
+            </div>
+
+
+            <div class="connection-box">
+
+                <span></span>
+
+                <span class="connection-text">
+                    WebSocket Connected
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+
+        <div class="filter-bar">
+
+            <span class="filter-label">
+                Magnitude:
+            </span>
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="major"
+            >
+                M 6+
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="moderate"
+            >
+                M 4 – 5.9
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="light"
+            >
+                M &lt; 4
+            </button>
+
+        </div>
+
+
+        <!-- ================= MAIN LIVE AREA ================= -->
+
+        <div class="live-grid">
+
+
+            <!-- ================= MAP ================= -->
+
+            <div class="live-map-card">
+
+                <div class="live-map-header">
+
+                    <div class="live-map-title">
+
+                        <i class="fa-solid fa-earth-americas"></i>
+
+                        <span>
+                            Live Global Earthquake Map
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="map-fullscreen"
+                        id="fullscreenBtn"
+                        title="Fullscreen"
+                    >
+
+                        <i class="fa-solid fa-expand"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="big-map"
+                    id="liveMap"
+                >
+
+                    <div class="big-map-grid"></div>
+
+
+                    <!-- LAND SHAPES -->
+
+                    <div class="land land-1"></div>
+
+                    <div class="land land-2"></div>
+
+                    <div class="land land-3"></div>
+
+                    <div class="land land-4"></div>
+
+                    <div class="land land-5"></div>
+
+
+                    <!-- EARTHQUAKE MARKERS -->
+
+                    <span
+                        class="live-marker marker-major lm1"
+                        title="Panama - M 6.8"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-moderate lm2"
+                        title="Chile - M 5.1"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-light lm3"
+                        title="Japan - M 4.7"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-major lm4"
+                        title="Tonga - M 6.1"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-moderate lm5"
+                        title="Indonesia - M 5.4"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-light lm6"
+                        title="Australia - M 3.8"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-moderate lm7"
+                        title="South America - M 5.0"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-light lm8"
+                        title="Turkey - M 3.9"
+                    ></span>
+
+                    <span
+                        class="live-marker marker-light lm9"
+                        title="New Zealand - M 3.7"
+                    ></span>
+
+
+                    <!-- MAP INFO -->
+
+                    <div class="map-info">
+
+                        <strong id="mapEventCount">
+                            48
+                        </strong>
+
+                        <span>
+                            Active earthquake events
+                        </span>
+
+                        <small>
+                            Updated just now
+                        </small>
+
+                    </div>
+
+
+                    <!-- LEGEND -->
+
+                    <div class="live-map-legend">
+
+                        <span>
+                            <i class="legend-dot red"></i>
+                            M 6+
+                        </span>
+
+                        <span>
+                            <i class="legend-dot orange"></i>
+                            M 4–5.9
+                        </span>
+
+                        <span>
+                            <i class="legend-dot yellow"></i>
+                            M &lt; 4
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EVENT PANEL ================= -->
+
+            <div class="events-panel">
+
+
+                <div class="events-header">
+
+                    <h2>
+                        Latest Events
+                    </h2>
+
+                    <p>
+                        Most recent earthquake activity
+                    </p>
+
+
+                    <div class="event-count">
+
+                        <span>
+                            Events detected
+                        </span>
+
+                        <strong id="eventCount">
+                            9
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="live-event-list"
+                    id="eventList"
+                >
+
+
+                    <!-- EVENT 1 -->
+
+                    <div
+                        class="live-event"
+                        data-type="major"
+                    >
+
+                        <div class="event-mag event-major">
+                            6.8
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Panama
+                                </h3>
+
+                                <span class="event-time">
+                                    2 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 10 km
+                            </p>
+
+                            <div class="event-location">
+                                7.904°N, 77.230°W
+                            </div>
+
+                            <span class="event-tag tag-major">
+                                Major
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 2 -->
+
+                    <div
+                        class="live-event"
+                        data-type="major"
+                    >
+
+                        <div class="event-mag event-major">
+                            6.1
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Tonga
+                                </h3>
+
+                                <span class="event-time">
+                                    18 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 35 km
+                            </p>
+
+                            <div class="event-location">
+                                20.562°S, 173.114°W
+                            </div>
+
+                            <span class="event-tag tag-major">
+                                Major
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 3 -->
+
+                    <div
+                        class="live-event"
+                        data-type="moderate"
+                    >
+
+                        <div class="event-mag event-moderate">
+                            5.4
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Indonesia
+                                </h3>
+
+                                <span class="event-time">
+                                    34 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 52 km
+                            </p>
+
+                            <div class="event-location">
+                                0.832°S, 122.986°E
+                            </div>
+
+                            <span class="event-tag tag-moderate">
+                                Moderate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 4 -->
+
+                    <div
+                        class="live-event"
+                        data-type="moderate"
+                    >
+
+                        <div class="event-mag event-moderate">
+                            5.1
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Chile
+                                </h3>
+
+                                <span class="event-time">
+                                    42 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 25 km
+                            </p>
+
+                            <div class="event-location">
+                                29.663°S, 71.377°W
+                            </div>
+
+                            <span class="event-tag tag-moderate">
+                                Moderate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 5 -->
+
+                    <div
+                        class="live-event"
+                        data-type="light"
+                    >
+
+                        <div class="event-mag event-light">
+                            4.7
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Japan
+                                </h3>
+
+                                <span class="event-time">
+                                    1h ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 50 km
+                            </p>
+
+                            <div class="event-location">
+                                37.642°N, 141.583°E
+                            </div>
+
+                            <span class="event-tag tag-light">
+                                Light
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 6 -->
+
+                    <div
+                        class="live-event"
+                        data-type="light"
+                    >
+
+                        <div class="event-mag event-light">
+                            4.3
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Turkey
+                                </h3>
+
+                                <span class="event-time">
+                                    1h ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 82 km
+                            </p>
+
+                            <div class="event-location">
+                                38.412°N, 38.721°E
+                            </div>
+
+                            <span class="event-tag tag-light">
+                                Light
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 7 -->
+
+                    <div
+                        class="live-event"
+                        data-type="light"
+                    >
+
+                        <div class="event-mag event-light">
+                            3.9
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    New Zealand
+                                </h3>
+
+                                <span class="event-time">
+                                    1h ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 112 km
+                            </p>
+
+                            <div class="event-location">
+                                41.212°S, 174.113°E
+                            </div>
+
+                            <span class="event-tag tag-light">
+                                Light
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 8 -->
+
+                    <div
+                        class="live-event"
+                        data-type="light"
+                    >
+
+                        <div class="event-mag event-light">
+                            3.7
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Philippines
+                                </h3>
+
+                                <span class="event-time">
+                                    2h ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 41 km
+                            </p>
+
+                            <div class="event-location">
+                                12.841°N, 125.412°E
+                            </div>
+
+                            <span class="event-tag tag-light">
+                                Light
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 9 -->
+
+                    <div
+                        class="live-event"
+                        data-type="moderate"
+                    >
+
+                        <div class="event-mag event-moderate">
+                            5.0
+                        </div>
+
+                        <div class="event-details">
+
+                            <div class="event-top">
+
+                                <h3>
+                                    Mexico
+                                </h3>
+
+                                <span class="event-time">
+                                    2h ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Depth: 29 km
+                            </p>
+
+                            <div class="event-location">
+                                16.321°N, 98.211°W
+                            </div>
+
+                            <span class="event-tag tag-moderate">
+                                Moderate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Real-Time Earthquake Intelligence System
+        </p>
+
+        <div>
+
+            <a href="index.html">Home</a>
+            <a href="live-events.html">Live Events</a>
+            <a href="search.html">Search</a>
+            <a href="ai-analysis.html">AI Analysis</a>
+            <a href="alerts.html">Alerts</a>
+            <a href="about.html">About</a>
+
+        </div>
+
+    </footer>
+
+
+</main>
+
+
+<!-- COMMON JS -->
+
+<script src="js/main.js"></script>
+
+<!-- PAGE JS -->
+
+<script src="js/live-events.js"></script>
+
+</body>
+
+</html>

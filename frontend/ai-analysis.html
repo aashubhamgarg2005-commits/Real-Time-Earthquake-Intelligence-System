@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Analysis | Earthquake Intel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/ai-analysis.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-house-crack"></i>
+            </div>
+
+            <div>
+                <h2>Earthquake</h2>
+                <span>Intel</span>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="live-events.html" class="nav-item">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Live Events</span>
+            </a>
+
+            <a href="search.html" class="nav-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+
+            <a href="ai-analysis.html" class="nav-item active">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI Analysis</span>
+            </a>
+
+            <a href="alerts.html" class="nav-item">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alerts</span>
+            </a>
+
+            <a href="about.html" class="nav-item">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>AI Engine Online</strong>
+                    <small>Models ready</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="topbar-title">
+                <span>Earthquake Intelligence System</span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>AI Active</span>
+                </div>
+
+                <div class="current-time" id="currentTime">
+                    --:--:--
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= AI PAGE ================= -->
+        <section class="ai-page">
+
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <span class="page-kicker">
+                        <i class="fa-solid fa-microchip"></i>
+                        Machine Learning & Deep Learning
+                    </span>
+
+                    <h1>AI Earthquake Analysis</h1>
+
+                    <p>
+                        Analyze seismic activity using machine learning
+                        and deep learning based intelligence.
+                    </p>
+
+                </div>
+
+
+                <div class="model-status">
+
+                    <span class="model-status-dot"></span>
+
+                    <div>
+                        <strong>AI Engine Online</strong>
+                        <small>Last analysis: 12:39:05</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EVENT SELECTOR ================= -->
+            <div class="analysis-selector">
+
+                <div class="selector-left">
+
+                    <div class="selector-icon">
+                        <i class="fa-solid fa-wave-square"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="selector-label">
+                            ANALYZING EVENT
+                        </span>
+
+                        <h2 id="eventRegion">
+                            Panama
+                        </h2>
+
+                        <p id="eventId">
+                            EMSC-20261012-001
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="selector-right">
+
+                    <label for="eventSelect">
+                        Select Event
+                    </label>
+
+                    <select id="eventSelect">
+
+                        <option value="panama">
+                            Panama — M 6.8
+                        </option>
+
+                        <option value="japan">
+                            Japan — M 5.7
+                        </option>
+
+                        <option value="india">
+                            Himachal Pradesh — M 4.6
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= AI SUMMARY ================= -->
+            <div class="ai-summary">
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <div class="summary-content">
+
+                    <span>AI GENERATED ASSESSMENT</span>
+
+                    <h2 id="aiSummaryTitle">
+                        Moderate Seismic Risk Detected
+                    </h2>
+
+                    <p id="aiSummaryText">
+                        The current earthquake shows significant seismic
+                        energy. Based on magnitude, depth, location and
+                        historical patterns, the event requires continued
+                        monitoring.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PREDICTION GRID ================= -->
+            <div class="analysis-grid">
+
+
+                <!-- RISK SCORE -->
+                <div class="analysis-card risk-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-label">
+                                ML MODEL
+                            </span>
+
+                            <h3>Seismic Risk Score</h3>
+                        </div>
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+
+                    <div class="risk-score-wrapper">
+
+                        <div class="risk-circle">
+
+                            <div>
+                                <strong id="riskScore">
+                                    68
+                                </strong>
+
+                                <span>/100</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-level">
+                        <span class="risk-dot"></span>
+                        <strong id="riskLevel">
+                            Moderate Risk
+                        </strong>
+                    </div>
+
+                    <p>
+                        Estimated from magnitude, depth,
+                        location and seismic characteristics.
+                    </p>
+
+                </div>
+
+
+                <!-- MAGNITUDE -->
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-label">
+                                PREDICTION
+                            </span>
+
+                            <h3>Magnitude Analysis</h3>
+                        </div>
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+
+                    <div class="prediction-value">
+
+                        <strong id="predictedMagnitude">
+                            6.8
+                        </strong>
+
+                        <span>Mw</span>
+
+                    </div>
+
+
+                    <div class="confidence-bar">
+
+                        <div
+                            class="confidence-fill"
+                            id="magnitudeConfidence"
+                        ></div>
+
+                    </div>
+
+                    <div class="prediction-footer">
+
+                        <span>Model confidence</span>
+
+                        <strong id="magnitudeConfidenceText">
+                            91%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DEPTH -->
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-label">
+                                SEISMIC MODEL
+                            </span>
+
+                            <h3>Depth Classification</h3>
+                        </div>
+
+                        <i class="fa-solid fa-arrow-down"></i>
+
+                    </div>
+
+
+                    <div class="depth-value">
+
+                        <strong id="depthValue">
+                            10
+                        </strong>
+
+                        <span>km</span>
+
+                    </div>
+
+
+                    <div class="depth-status" id="depthStatus">
+                        Shallow Earthquake
+                    </div>
+
+                    <p>
+                        Shallow events can produce stronger
+                        surface shaking near the epicenter.
+                    </p>
+
+                </div>
+
+
+                <!-- AFTERSHOCK -->
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-label">
+                                DL MODEL
+                            </span>
+
+                            <h3>Aftershock Probability</h3>
+                        </div>
+
+                        <i class="fa-solid fa-wave-square"></i>
+
+                    </div>
+
+
+                    <div class="prediction-value">
+
+                        <strong id="aftershockProbability">
+                            64
+                        </strong>
+
+                        <span>%</span>
+
+                    </div>
+
+
+                    <div class="probability-track">
+
+                        <div
+                            id="aftershockBar"
+                            class="probability-fill"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="prediction-footer">
+
+                        <span>Next 24 hours</span>
+
+                        <strong>Moderate</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FORECAST ================= -->
+            <div class="forecast-card">
+
+                <div class="forecast-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            AI FORECAST
+                        </span>
+
+                        <h2>Seismic Activity Forecast</h2>
+
+                        <p>
+                            Estimated probability of significant
+                            seismic activity after the current event.
+                        </p>
+
+                    </div>
+
+                    <div class="forecast-badge">
+                        <i class="fa-solid fa-robot"></i>
+                        AI Prediction
+                    </div>
+
+                </div>
+
+
+                <div class="forecast-chart">
+
+                    <div class="chart-line">
+
+                        <div class="chart-point point-1">
+                            <span>Now</span>
+                            <strong>68%</strong>
+                        </div>
+
+                        <div class="chart-point point-2">
+                            <span>6h</span>
+                            <strong>61%</strong>
+                        </div>
+
+                        <div class="chart-point point-3">
+                            <span>12h</span>
+                            <strong>49%</strong>
+                        </div>
+
+                        <div class="chart-point point-4">
+                            <span>18h</span>
+                            <strong>38%</strong>
+                        </div>
+
+                        <div class="chart-point point-5">
+                            <span>24h</span>
+                            <strong>29%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= AI INSIGHTS ================= -->
+            <div class="insights-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            INTELLIGENCE
+                        </span>
+
+                        <h2>AI Insights</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insights-grid">
+
+
+                    <div class="insight-item">
+
+                        <div class="insight-icon blue">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Location Impact</h3>
+
+                            <p id="locationInsight">
+                                Event location indicates a
+                                potentially significant seismic zone.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-item">
+
+                        <div class="insight-icon orange">
+                            <i class="fa-solid fa-arrows-down-to-line"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Depth Impact</h3>
+
+                            <p id="depthInsight">
+                                Shallow depth increases the possibility
+                                of stronger surface-level shaking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-item">
+
+                        <div class="insight-icon purple">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Historical Pattern</h3>
+
+                            <p id="historicalInsight">
+                                Similar seismic patterns have been
+                                detected in historical observations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-item">
+
+                        <div class="insight-icon red">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Recommended Action</h3>
+
+                            <p id="actionInsight">
+                                Continue monitoring the event and
+                                follow official emergency guidance.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MODEL INFORMATION ================= -->
+            <div class="model-info">
+
+                <div class="model-info-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            MODEL INFORMATION
+                        </span>
+
+                        <h2>AI System</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-gears"></i>
+
+                </div>
+
+
+                <div class="model-list">
+
+                    <div class="model-row">
+
+                        <div class="model-name">
+                            <span class="model-number">01</span>
+
+                            <div>
+                                <strong>Seismic Risk Model</strong>
+                                <small>Machine Learning</small>
+                            </div>
+                        </div>
+
+                        <span class="model-status active">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="model-row">
+
+                        <div class="model-name">
+                            <span class="model-number">02</span>
+
+                            <div>
+                                <strong>Aftershock Model</strong>
+                                <small>Deep Learning</small>
+                            </div>
+                        </div>
+
+                        <span class="model-status active">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="model-row">
+
+                        <div class="model-name">
+                            <span class="model-number">03</span>
+
+                            <div>
+                                <strong>Pattern Analysis</strong>
+                                <small>Time-Series Intelligence</small>
+                            </div>
+                        </div>
+
+                        <span class="model-status active">
+                            Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DISCLAIMER -->
+            <div class="ai-disclaimer">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    AI predictions are estimates generated from available
+                    seismic data and historical patterns. They should not
+                    be treated as official earthquake warnings or guaranteed
+                    predictions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+
+            <div>
+                © 2026 Earthquake Intel
+            </div>
+
+            <div class="footer-links">
+
+                <a href="live-events.html">Live Events</a>
+                <a href="search.html">Search</a>
+                <a href="ai-analysis.html">AI Analysis</a>
+                <a href="about.html">About</a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Common JS -->
+<script src="js/main.js"></script>
+
+<!-- Page JS -->
+<script src="js/ai-analysis.js"></script>
+
+</body>
+</html>

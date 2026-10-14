@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Earthquakes | Earthquake Intel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/search.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-house-crack"></i>
+            </div>
+
+            <div>
+                <h2>Earthquake</h2>
+                <span>Intel</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="live-events.html" class="nav-item">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Live Events</span>
+            </a>
+
+            <a href="search.html" class="nav-item active">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+
+            <a href="ai-analysis.html" class="nav-item">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI Analysis</span>
+            </a>
+
+            <a href="alerts.html" class="nav-item">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alerts</span>
+            </a>
+
+            <a href="about.html" class="nav-item">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>System Online</strong>
+                    <small>Live monitoring active</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="topbar-title">
+                <span>Earthquake Intelligence System</span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>Live Data</span>
+                </div>
+
+                <div class="current-time" id="currentTime">
+                    --:--:--
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PAGE ================= -->
+        <section class="search-page">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <span class="page-kicker">
+                        <i class="fa-solid fa-database"></i>
+                        Earthquake Database
+                    </span>
+
+                    <h1>Search Earthquake Events</h1>
+
+                    <p>
+                        Find recent and historical earthquake events using
+                        location, magnitude, depth and date filters.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- ================= SEARCH PANEL ================= -->
+            <div class="search-panel">
+
+                <div class="panel-heading">
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div>
+                        <h2>Search & Filter</h2>
+                        <p>Set the conditions to find specific earthquake events.</p>
+                    </div>
+                </div>
+
+
+                <div class="filter-grid">
+
+                    <!-- LOCATION -->
+                    <div class="form-group location-field">
+
+                        <label for="location">
+                            Location / Region
+                        </label>
+
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <input
+                                type="text"
+                                id="location"
+                                placeholder="e.g. India, Japan, Panama"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- MIN MAGNITUDE -->
+                    <div class="form-group">
+
+                        <label for="minMagnitude">
+                            Minimum Magnitude
+                        </label>
+
+                        <select id="minMagnitude">
+
+                            <option value="">Any</option>
+                            <option value="2">2.0+</option>
+                            <option value="3">3.0+</option>
+                            <option value="4">4.0+</option>
+                            <option value="5">5.0+</option>
+                            <option value="6">6.0+</option>
+                            <option value="7">7.0+</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MAX MAGNITUDE -->
+                    <div class="form-group">
+
+                        <label for="maxMagnitude">
+                            Maximum Magnitude
+                        </label>
+
+                        <select id="maxMagnitude">
+
+                            <option value="">Any</option>
+                            <option value="4">Below 4.0</option>
+                            <option value="5">Below 5.0</option>
+                            <option value="6">Below 6.0</option>
+                            <option value="7">Below 7.0</option>
+                            <option value="8">Below 8.0</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MIN DEPTH -->
+                    <div class="form-group">
+
+                        <label for="minDepth">
+                            Minimum Depth (km)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="minDepth"
+                            min="0"
+                            placeholder="e.g. 0"
+                        >
+
+                    </div>
+
+
+                    <!-- MAX DEPTH -->
+                    <div class="form-group">
+
+                        <label for="maxDepth">
+                            Maximum Depth (km)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="maxDepth"
+                            min="0"
+                            placeholder="e.g. 100"
+                        >
+
+                    </div>
+
+
+                    <!-- FROM DATE -->
+                    <div class="form-group">
+
+                        <label for="fromDate">
+                            From Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fromDate"
+                        >
+
+                    </div>
+
+
+                    <!-- TO DATE -->
+                    <div class="form-group">
+
+                        <label for="toDate">
+                            To Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="toDate"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="search-actions">
+
+                    <button class="btn-primary" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Search Events
+                    </button>
+
+                    <button class="btn-secondary" id="resetBtn">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= QUICK FILTERS ================= -->
+            <div class="quick-section">
+
+                <div class="section-title">
+                    <h2>Quick Filters</h2>
+                    <span>One-click searches</span>
+                </div>
+
+                <div class="quick-filters">
+
+                    <button class="quick-filter" data-filter="m6">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Magnitude 6+
+                    </button>
+
+                    <button class="quick-filter" data-filter="recent">
+                        <i class="fa-solid fa-clock"></i>
+                        Last 24 Hours
+                    </button>
+
+                    <button class="quick-filter" data-filter="shallow">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        Shallow Events
+                    </button>
+
+                    <button class="quick-filter" data-filter="india">
+                        <i class="fa-solid fa-location-dot"></i>
+                        India Region
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RESULTS ================= -->
+            <div class="results-section">
+
+                <div class="results-header">
+
+                    <div>
+                        <span class="section-label">SEARCH RESULTS</span>
+
+                        <h2>
+                            Earthquake Events
+                            <span id="resultCount">0</span>
+                        </h2>
+                    </div>
+
+
+                    <div class="sort-box">
+
+                        <label for="sortSelect">
+                            Sort by
+                        </label>
+
+                        <select id="sortSelect">
+
+                            <option value="latest">
+                                Latest
+                            </option>
+
+                            <option value="magnitude">
+                                Highest Magnitude
+                            </option>
+
+                            <option value="depth">
+                                Deepest
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESULTS CONTAINER -->
+                <div id="resultsContainer" class="results-container">
+                    <!-- Results inserted by JavaScript -->
+                </div>
+
+
+                <!-- NO RESULTS -->
+                <div id="noResults" class="no-results hidden">
+
+                    <div class="no-results-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <h3>No Earthquakes Found</h3>
+
+                    <p>
+                        Try changing your search filters or using a broader
+                        location and magnitude range.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+
+            <div>
+                © 2026 Earthquake Intel
+            </div>
+
+            <div class="footer-links">
+
+                <a href="live-events.html">Live Events</a>
+                <a href="search.html">Search</a>
+                <a href="ai-analysis.html">AI Analysis</a>
+                <a href="about.html">About</a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Common JS -->
+<script src="js/main.js"></script>
+
+<!-- Page JS -->
+<script src="js/search.js"></script>
+
+</body>
+</html>

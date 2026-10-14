@@ -1,0 +1,796 @@
+/* =========================================
+   AI ANALYSIS PAGE
+========================================= */
+
+.ai-page {
+    max-width: 1500px;
+    margin: auto;
+    padding: 32px;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.page-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #168fff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.page-header h1 {
+    margin: 7px 0 0;
+    color: #102d43;
+    font-size: 32px;
+}
+
+.page-header p {
+    margin: 8px 0 0;
+    color: #71808f;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   MODEL STATUS
+========================================= */
+
+.model-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 15px;
+    border: 1px solid #dfe9e4;
+    border-radius: 10px;
+    background: #f8fcfa;
+}
+
+.model-status-dot {
+    width: 9px;
+    height: 9px;
+    background: #1eb875;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(30, 184, 117, 0.12);
+}
+
+.model-status strong {
+    display: block;
+    color: #27634c;
+    font-size: 12px;
+}
+
+.model-status small {
+    display: block;
+    color: #84958d;
+    margin-top: 2px;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   EVENT SELECTOR
+========================================= */
+
+.analysis-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 22px;
+    background: #ffffff;
+    border: 1px solid #e3eaf0;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(16, 45, 67, 0.04);
+}
+
+.selector-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.selector-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eaf5ff;
+    color: #168fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.selector-label {
+    color: #8a98a4;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.selector-left h2 {
+    margin: 3px 0 1px;
+    color: #18384d;
+    font-size: 19px;
+}
+
+.selector-left p {
+    margin: 0;
+    color: #84929e;
+    font-size: 11px;
+}
+
+.selector-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selector-right label {
+    color: #788894;
+    font-size: 12px;
+}
+
+.selector-right select {
+    height: 39px;
+    min-width: 190px;
+    border: 1px solid #dbe4eb;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #3c5668;
+    padding: 0 12px;
+    outline: none;
+}
+
+
+/* =========================================
+   AI SUMMARY
+========================================= */
+
+.ai-summary {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #cfe5f8;
+    border-left: 4px solid #168fff;
+    border-radius: 12px;
+    background: #f5faff;
+}
+
+.summary-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #e4f2ff;
+    color: #168fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.summary-content > span {
+    color: #168fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+}
+
+.summary-content h2 {
+    margin: 4px 0 5px;
+    color: #17394f;
+    font-size: 18px;
+}
+
+.summary-content p {
+    margin: 0;
+    color: #6e808e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ANALYSIS GRID
+========================================= */
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.analysis-card {
+    background: #ffffff;
+    border: 1px solid #e2e9ef;
+    border-radius: 13px;
+    padding: 19px;
+    min-height: 210px;
+    box-shadow: 0 4px 15px rgba(16, 45, 67, 0.035);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-heading h3 {
+    margin: 4px 0 0;
+    color: #213f52;
+    font-size: 15px;
+}
+
+.card-heading > i {
+    color: #168fff;
+    font-size: 17px;
+}
+
+.card-label {
+    color: #8997a2;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+}
+
+
+/* =========================================
+   RISK SCORE
+========================================= */
+
+.risk-score-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0 12px;
+}
+
+.risk-circle {
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 57%,
+            transparent 58%
+        ),
+        conic-gradient(
+            #168fff 68%,
+            #e7edf2 0
+        );
+}
+
+.risk-circle div {
+    text-align: center;
+}
+
+.risk-circle strong {
+    color: #173b52;
+    font-size: 28px;
+}
+
+.risk-circle span {
+    color: #8a98a4;
+    font-size: 10px;
+}
+
+.risk-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: #c27b0a;
+    font-size: 12px;
+}
+
+.risk-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e3a21a;
+}
+
+.analysis-card p {
+    color: #84929e;
+    font-size: 11px;
+    line-height: 1.55;
+    margin: 11px 0 0;
+    text-align: center;
+}
+
+
+/* =========================================
+   PREDICTION VALUES
+========================================= */
+
+.prediction-value {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+.prediction-value strong {
+    color: #15394f;
+    font-size: 38px;
+}
+
+.prediction-value span {
+    color: #82919d;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   CONFIDENCE
+========================================= */
+
+.confidence-bar,
+.probability-track {
+    width: 100%;
+    height: 7px;
+    margin-top: 19px;
+    background: #edf1f4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.confidence-fill,
+.probability-fill {
+    height: 100%;
+    width: 91%;
+    background: #168fff;
+    border-radius: 10px;
+}
+
+.prediction-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9px;
+    color: #87949e;
+    font-size: 10px;
+}
+
+.prediction-footer strong {
+    color: #168fff;
+}
+
+
+/* =========================================
+   DEPTH
+========================================= */
+
+.depth-value {
+    margin-top: 29px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.depth-value strong {
+    color: #173b52;
+    font-size: 37px;
+}
+
+.depth-value span {
+    color: #82909b;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.depth-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #fff2e9;
+    color: #c75d28;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FORECAST
+========================================= */
+
+.forecast-card {
+    margin-top: 20px;
+    padding: 23px;
+    background: #ffffff;
+    border: 1px solid #e2e9ef;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(16, 45, 67, 0.035);
+}
+
+.forecast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.forecast-header h2 {
+    margin: 5px 0 5px;
+    color: #183a50;
+    font-size: 19px;
+}
+
+.forecast-header p {
+    margin: 0;
+    color: #83919d;
+    font-size: 12px;
+}
+
+.forecast-badge {
+    padding: 8px 11px;
+    border-radius: 7px;
+    background: #eaf5ff;
+    color: #168fff;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.forecast-badge i {
+    margin-right: 5px;
+}
+
+
+/* =========================================
+   FORECAST CHART
+========================================= */
+
+.forecast-chart {
+    position: relative;
+    height: 175px;
+    margin-top: 25px;
+    border-bottom: 1px solid #dfe7ed;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 42px,
+            #edf2f5 43px
+        );
+}
+
+.chart-line {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: 35px;
+    height: 100px;
+    border-top: 3px solid #168fff;
+    transform: skewY(-9deg);
+}
+
+.chart-point {
+    position: absolute;
+    top: -10px;
+    transform: translateX(-50%) skewY(9deg);
+    text-align: center;
+}
+
+.chart-point::before {
+    content: "";
+    display: block;
+    width: 11px;
+    height: 11px;
+    margin: auto;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: #168fff;
+    box-shadow: 0 0 0 2px #168fff;
+}
+
+.chart-point span {
+    display: block;
+    margin-top: 12px;
+    color: #7e8d99;
+    font-size: 10px;
+}
+
+.chart-point strong {
+    display: block;
+    margin-top: 3px;
+    color: #3f5869;
+    font-size: 11px;
+}
+
+.point-1 {
+    left: 0%;
+}
+
+.point-2 {
+    left: 25%;
+}
+
+.point-3 {
+    left: 50%;
+}
+
+.point-4 {
+    left: 75%;
+}
+
+.point-5 {
+    left: 100%;
+}
+
+
+/* =========================================
+   INSIGHTS
+========================================= */
+
+.insights-section {
+    margin-top: 25px;
+}
+
+.section-heading {
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    margin: 4px 0 0;
+    color: #18394e;
+    font-size: 20px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.insight-item {
+    display: flex;
+    gap: 13px;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #e3e9ee;
+    border-radius: 11px;
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insight-icon.blue {
+    background: #eaf5ff;
+    color: #168fff;
+}
+
+.insight-icon.orange {
+    background: #fff2e9;
+    color: #dc702d;
+}
+
+.insight-icon.purple {
+    background: #f2edff;
+    color: #7753c7;
+}
+
+.insight-icon.red {
+    background: #ffeded;
+    color: #d44c4c;
+}
+
+.insight-item h3 {
+    margin: 1px 0 5px;
+    color: #304b5d;
+    font-size: 13px;
+}
+
+.insight-item p {
+    margin: 0;
+    color: #7c8b96;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   MODEL INFORMATION
+========================================= */
+
+.model-info {
+    margin-top: 20px;
+    padding: 21px;
+    background: #ffffff;
+    border: 1px solid #e2e9ef;
+    border-radius: 13px;
+}
+
+.model-info-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.model-info-header h2 {
+    margin: 4px 0 0;
+    color: #18394e;
+    font-size: 19px;
+}
+
+.model-info-header > i {
+    color: #168fff;
+    font-size: 18px;
+}
+
+.model-list {
+    margin-top: 16px;
+}
+
+.model-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-top: 1px solid #edf1f4;
+}
+
+.model-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.model-number {
+    width: 29px;
+    height: 29px;
+    border-radius: 7px;
+    background: #f0f6fa;
+    color: #168fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.model-name strong {
+    display: block;
+    color: #344f61;
+    font-size: 12px;
+}
+
+.model-name small {
+    display: block;
+    margin-top: 3px;
+    color: #8a98a3;
+    font-size: 10px;
+}
+
+.model-status {
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #edf8f2;
+    color: #168052;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.ai-disclaimer {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 9px;
+    background: #f7f9fa;
+    color: #7c8a95;
+}
+
+.ai-disclaimer i {
+    margin-top: 2px;
+    color: #80909c;
+}
+
+.ai-disclaimer p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .page-header,
+    .analysis-selector,
+    .forecast-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .selector-right {
+        width: 100%;
+    }
+
+    .selector-right select {
+        flex: 1;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .ai-page {
+        padding: 20px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .selector-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .selector-right select {
+        width: 100%;
+    }
+
+    .forecast-card {
+        padding: 17px;
+    }
+
+    .forecast-chart {
+        overflow: hidden;
+    }
+
+}

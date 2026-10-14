@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Earthquake Intel</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-house-crack"></i>
+            </div>
+
+            <div>
+                <h2>Earthquake Intel</h2>
+                <span>Real-Time Intelligence</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="live-events.html">
+                <i class="fa-solid fa-satellite-dish"></i>
+                <span>Live Events</span>
+            </a>
+
+            <a href="search.html">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+
+            <a href="ai-analysis.html">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI Analysis</span>
+            </a>
+
+            <a href="alerts.html">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alerts</span>
+            </a>
+
+            <a href="about.html" class="active">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="system-mini-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>System Online</strong>
+                    <small>Monitoring active</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <span>Project Information</span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-indicator">
+                    <span></span>
+                    LIVE
+                </div>
+
+                <div class="current-time" id="currentTime">
+                    00:00:00
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page Content -->
+        <section class="page-content">
+
+            <!-- Page Header -->
+            <div class="page-header about-header">
+
+                <div>
+                    <span class="page-eyebrow">
+                        <i class="fa-solid fa-circle-info"></i>
+                        ABOUT THE PROJECT
+                    </span>
+
+                    <h1>About Earthquake Intel</h1>
+
+                    <p>
+                        A real-time earthquake intelligence platform designed
+                        to collect, process, analyze and present earthquake
+                        information using modern data engineering,
+                        machine learning and deep learning technologies.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Mission -->
+            <section class="about-hero-card">
+
+                <div class="about-hero-content">
+
+                    <div class="hero-icon">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+
+                    <div>
+
+                        <h2>Turning Seismic Data Into Intelligence</h2>
+
+                        <p>
+                            Earthquake Intel continuously receives earthquake
+                            events from a real-time seismic data source and
+                            transforms raw event information into meaningful
+                            intelligence.
+                        </p>
+
+                        <p>
+                            The platform combines streaming data engineering,
+                            scalable processing, AI-based analysis and a
+                            real-time web application to help users understand
+                            earthquake activity more effectively.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Problem / Solution -->
+            <section class="problem-solution-grid">
+
+                <div class="info-card">
+
+                    <div class="card-icon problem-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="section-label">THE PROBLEM</span>
+
+                        <h2>Raw earthquake data is difficult to interpret</h2>
+
+                        <p>
+                            Real-time seismic systems continuously generate
+                            earthquake events containing information such as
+                            magnitude, location, depth and timestamp.
+                        </p>
+
+                        <p>
+                            Simply receiving this data does not provide users
+                            with enough intelligence to understand risk,
+                            patterns or possible aftershock activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="card-icon solution-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="section-label">THE SOLUTION</span>
+
+                        <h2>A complete real-time intelligence pipeline</h2>
+
+                        <p>
+                            Earthquake Intel processes incoming events through
+                            a streaming pipeline and enriches them with
+                            analytical and AI-based information.
+                        </p>
+
+                        <p>
+                            Users can explore live events, search historical
+                            information, view event details, receive alerts
+                            and understand AI-generated risk analysis.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Architecture -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        SYSTEM ARCHITECTURE
+                    </span>
+
+                    <h2>How Earthquake Intel Works</h2>
+
+                    <p>
+                        The platform follows a real-time data flow from
+                        earthquake detection to user-facing intelligence.
+                    </p>
+
+                </div>
+
+
+                <div class="architecture-flow">
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">01</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+
+                        <h3>Data Source</h3>
+
+                        <p>
+                            Real-time earthquake events are received through
+                            a WebSocket seismic data source.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">02</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-plug"></i>
+                        </div>
+
+                        <h3>WebSocket Collector</h3>
+
+                        <p>
+                            A Python client maintains the real-time connection
+                            and receives earthquake events.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">03</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-stream"></i>
+                        </div>
+
+                        <h3>Kafka</h3>
+
+                        <p>
+                            Incoming earthquake events are published to a
+                            Kafka topic for streaming processing.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">04</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+
+                        <h3>Spark Streaming</h3>
+
+                        <p>
+                            Spark Structured Streaming processes and transforms
+                            the incoming earthquake stream.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">05</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+
+                        <h3>Storage</h3>
+
+                        <p>
+                            Processed information can be stored for historical
+                            analysis and downstream intelligence.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">06</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <h3>ML / DL</h3>
+
+                        <p>
+                            Machine learning and deep learning models analyze
+                            seismic patterns and estimate risk indicators.
+                        </p>
+
+                    </div>
+
+
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+
+                    <div class="architecture-step">
+
+                        <div class="step-number">07</div>
+
+                        <div class="step-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+
+                        <h3>Web Application</h3>
+
+                        <p>
+                            FastAPI and WebSocket services deliver real-time
+                            intelligence to the frontend.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Technology Stack -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        TECHNOLOGY STACK
+                    </span>
+
+                    <h2>Technologies Behind The Platform</h2>
+
+                    <p>
+                        The system combines data engineering, backend,
+                        AI and frontend technologies.
+                    </p>
+
+                </div>
+
+
+                <div class="technology-grid">
+
+                    <div class="technology-card">
+                        <i class="fa-brands fa-python"></i>
+                        <div>
+                            <h3>Python</h3>
+                            <p>Data ingestion, backend and ML workflows</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-stream"></i>
+                        <div>
+                            <h3>Apache Kafka</h3>
+                            <p>Real-time event streaming</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-bolt"></i>
+                        <div>
+                            <h3>Apache Spark</h3>
+                            <p>Structured streaming and processing</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-box-archive"></i>
+                        <div>
+                            <h3>MinIO</h3>
+                            <p>Object storage for data processing workflows</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-database"></i>
+                        <div>
+                            <h3>PostgreSQL</h3>
+                            <p>Structured earthquake data storage</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-server"></i>
+                        <div>
+                            <h3>FastAPI</h3>
+                            <p>Backend API and real-time services</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-brain"></i>
+                        <div>
+                            <h3>Machine Learning</h3>
+                            <p>Risk analysis and seismic pattern detection</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <div>
+                            <h3>Deep Learning</h3>
+                            <p>Advanced seismic sequence analysis</p>
+                        </div>
+                    </div>
+
+
+                    <div class="technology-card">
+                        <i class="fa-brands fa-html5"></i>
+                        <div>
+                            <h3>HTML / CSS / JavaScript</h3>
+                            <p>Interactive frontend web application</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Features -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        PLATFORM CAPABILITIES
+                    </span>
+
+                    <h2>What The Platform Provides</h2>
+
+                </div>
+
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">01</div>
+
+                        <i class="fa-solid fa-satellite-dish"></i>
+
+                        <h3>Real-Time Monitoring</h3>
+
+                        <p>
+                            Monitor newly detected earthquake events as they
+                            arrive from the live seismic stream.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">02</div>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <h3>Event Details</h3>
+
+                        <p>
+                            Explore magnitude, depth, coordinates, region,
+                            time and other earthquake characteristics.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">03</div>
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <h3>Earthquake Search</h3>
+
+                        <p>
+                            Search and filter earthquake records using
+                            magnitude, depth, location and date.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">04</div>
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        <h3>AI Analysis</h3>
+
+                        <p>
+                            Use ML and DL models to generate risk indicators,
+                            seismic insights and predictive information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">05</div>
+
+                        <i class="fa-solid fa-bell"></i>
+
+                        <h3>Intelligent Alerts</h3>
+
+                        <p>
+                            Detect important seismic events and generate
+                            alerts based on configured conditions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">06</div>
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        <h3>Historical Intelligence</h3>
+
+                        <p>
+                            Store and analyze previous earthquake events to
+                            identify patterns and trends.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Team -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        DEVELOPMENT ROLES
+                    </span>
+
+                    <h2>Project Team Structure</h2>
+
+                    <p>
+                        The project can be developed through specialized
+                        engineering and AI roles.
+                    </p>
+
+                </div>
+
+
+                <div class="team-grid">
+
+                    <div class="team-card">
+
+                        <div class="team-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+
+                        <h3>Data Engineer</h3>
+
+                        <p>
+                            Responsible for real-time ingestion, Kafka,
+                            Spark Structured Streaming, data transformation
+                            and storage pipelines.
+                        </p>
+
+                        <div class="role-tags">
+                            <span>Kafka</span>
+                            <span>Spark</span>
+                            <span>ETL</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="team-card">
+
+                        <div class="team-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <h3>ML Engineer</h3>
+
+                        <p>
+                            Responsible for feature engineering, machine
+                            learning models, risk scoring and earthquake
+                            prediction workflows.
+                        </p>
+
+                        <div class="role-tags">
+                            <span>ML</span>
+                            <span>Features</span>
+                            <span>Prediction</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="team-card">
+
+                        <div class="team-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <h3>DL Engineer</h3>
+
+                        <p>
+                            Responsible for deep learning models that analyze
+                            complex temporal and seismic patterns.
+                        </p>
+
+                        <div class="role-tags">
+                            <span>DL</span>
+                            <span>Sequences</span>
+                            <span>AI</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Objectives -->
+            <section class="objectives-card">
+
+                <div class="objectives-content">
+
+                    <div class="objectives-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="section-label">
+                            PROJECT OBJECTIVES
+                        </span>
+
+                        <h2>Built For Real-Time Seismic Intelligence</h2>
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Collect earthquake events continuously.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Process streaming seismic data efficiently.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Preserve historical earthquake information.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Apply machine learning and deep learning.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Deliver insights through a real-time web application.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Disclaimer -->
+            <div class="about-disclaimer">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div>
+
+                    <strong>Important Disclaimer</strong>
+
+                    <p>
+                        Earthquake Intel is an educational and analytical
+                        project. AI-generated risk indicators and predictions
+                        should not be treated as official earthquake warnings,
+                        emergency instructions or scientific forecasts.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div>
+                © 2026 Earthquake Intel
+            </div>
+
+            <div>
+                Real-Time Earthquake Intelligence Platform
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="js/main.js"></script>
+<script src="js/about.js"></script>
+
+</body>
+</html>
