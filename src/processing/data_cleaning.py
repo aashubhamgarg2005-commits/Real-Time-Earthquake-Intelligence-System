@@ -91,7 +91,7 @@ class EarthQuakeDataCleaning:
 
         return (
             df
-            .withColumn("event_timestamp", to_timestamp("event_time"))
+            .withColumn("event_time", to_timestamp("event_time"))
             .withColumn(
                 "lastupdate_timestamp",
                 to_timestamp("lastupdate")
@@ -104,7 +104,7 @@ class EarthQuakeDataCleaning:
             col("latitude").between(-90, 90) &
             col("longitude").between(-180, 180) &
             col("magnitude").isNotNull() &
-            col("event_timestamp").isNotNull()
+            col("event_time").isNotNull()
         )
 
     # 6. Remove duplicates (batch DataFrames)

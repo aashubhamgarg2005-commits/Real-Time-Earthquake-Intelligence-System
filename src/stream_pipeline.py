@@ -7,16 +7,17 @@ from .processing.data_cleaning import EarthQuakeDataCleaning
 from .processing.earthquake_schema import earthquake_schema
 from .processing.gold_transformer import GoldTransformer
 
+from sql.postgres_writer import write_to_postgres
+
 
 def main():
-
     # ==========================================
-    # 1. READ RAW EARTHQUAKE DATA FROM KAFKA
+    # 1. Read real-time data from Kafka
     # ==========================================
     earthquake_json = consume_stream_data()
 
     # ==========================================
-    # 2. CREATE MINIO BUCKET IF NOT EXISTS
+    # 2. Initialize MinIO bucket
     # ==========================================
     minio_client = MinioClient()
 
@@ -24,7 +25,7 @@ def main():
         minio_client.create_bucket()
 
     # ==========================================
-    # 3. BRONZE LAYER - WRITE RAW JSON
+    # 3. BRONZE: Store raw JSON in MinIO
     # ==========================================
     bronze_query = (
         earthquake_json.writeStream
@@ -43,7 +44,7 @@ def main():
     )
 
     # ==========================================
-    # 4. CLEAN RAW EARTHQUAKE DATA
+    # 4. Clean incoming earthquake data
     # ==========================================
     earthquake_cleaner = EarthQuakeDataCleaning(
         schema=earthquake_schema
@@ -54,7 +55,7 @@ def main():
     )
 
     # ==========================================
-    # 5. SILVER LAYER - WRITE CLEAN PARQUET
+    # 5. SILVER: Store cleaned data in MinIO
     # ==========================================
     silver_query = (
         clean_data.writeStream
@@ -72,7 +73,7 @@ def main():
     )
 
     # ==========================================
-    # 6. GOLD LAYER - PROCESS EACH MICRO-BATCH
+    # 6. GOLD: Transform and write each microbatch
     # ==========================================
     def process_gold_batch(batch_df, batch_id):
 
@@ -82,10 +83,16 @@ def main():
 
         print(f"Processing Gold batch: {batch_id}")
 
-        # Create transformer using the current batch
-        gold_transformer = GoldTransformer(df=batch_df)
+        # ------------------------------------------
+        # Create Gold Transformer
+        # ------------------------------------------
+        gold_transformer = GoldTransformer(
+            df=batch_df
+        )
 
-        # Create dimension tables
+        # ------------------------------------------
+        # Prepare dimension tables
+        # ------------------------------------------
         dim_location = (
             gold_transformer.prepare_dim_location()
         )
@@ -102,7 +109,9 @@ def main():
             gold_transformer.prepare_dim_source()
         )
 
-        # Create fact table using batch DataFrames
+        # ------------------------------------------
+        # Prepare fact table
+        # ------------------------------------------
         fact_earthquake = (
             gold_transformer.prepare_fact_earthquake(
                 dim_location=dim_location,
@@ -112,7 +121,9 @@ def main():
             )
         )
 
-        # Collect all Gold DataFrames
+        # ------------------------------------------
+        # Write Gold DataFrames to MinIO
+        # ------------------------------------------
         gold_dataframes = {
             "dim_location": dim_location,
             "dim_time": dim_time,
@@ -121,7 +132,6 @@ def main():
             "fact_earthquake": fact_earthquake
         }
 
-        # Write Gold tables to MinIO
         for table_name, table_df in gold_dataframes.items():
 
             output_path = (
@@ -139,10 +149,67 @@ def main():
                 f"{table_name} written to MinIO"
             )
 
-        print(f"Gold batch {batch_id} completed.")
+        # ------------------------------------------
+        # Write dimensions to PostgreSQL first
+        # ------------------------------------------
+        write_to_postgres(
+            dim_location,
+            "dim_location",
+            ["location_id"]
+        )
+
+        write_to_postgres(
+            dim_time,
+            "dim_time",
+            ["time_id"]
+        )
+
+        # The PostgreSQL table name is event_type,
+        # even though the Spark DataFrame is dim_event_type.
+        write_to_postgres(
+            dim_event_type,
+            "dim_event_type",
+            ["event_type_id"]
+        )
+
+        write_to_postgres(
+            dim_source,
+            "dim_source",
+            ["source_key"]
+        )
+
+        print(
+            f"Batch {batch_id}: "
+            "dimension tables written to PostgreSQL"
+        )
+
+        # ------------------------------------------
+        # Write fact table after dimension tables
+        # ------------------------------------------
+        write_to_postgres(
+            fact_earthquake,
+            "fact_earthquake",
+            ["event_id"],
+            update_columns=[
+                "location_id",
+                "time_id",
+                "event_type_id",
+                "source_key",
+                "magnitude",
+                "depth_km",
+                "last_update",
+                "event_action",
+                "magnitude_category",
+                "depth_category"
+            ]
+        )
+
+        print(
+            f"Gold batch {batch_id} completed successfully."
+        )
 
     # ==========================================
-    # 7. START GOLD STREAMING WITH FOREACHBATCH
+    # 7. Start Gold streaming query
     # ==========================================
     gold_query = (
         clean_data.writeStream
@@ -154,13 +221,15 @@ def main():
         .start()
     )
 
+    # ==========================================
+    # 8. Pipeline status
+    # ==========================================
     print("Bronze streaming started.")
     print("Silver streaming started.")
     print("Gold streaming started.")
+    print("PostgreSQL writes enabled.")
 
-    # ==========================================
-    # 8. KEEP ALL STREAMS RUNNING
-    # ==========================================
+    # Keep streaming queries running
     spark.streams.awaitAnyTermination()
 
 

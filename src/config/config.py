@@ -24,6 +24,7 @@ postgres_port = os.getenv("POSTGRES_PORT")
 postgres_db = os.getenv("POSTGRES_DB")
 postgres_user = os.getenv("POSTGRES_USER")
 postgres_password = os.getenv("POSTGRES_PASSWORD")
+postgres_url = os.getenv("POSTGRES_URL")
 
 # EMSC Websocket
 
